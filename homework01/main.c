@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <string.h>
+#define _CRT_SECURE_NO_WARNINGS
 
 int main() {
     char screen[465];
 	char screen2[465];
 	char screen3[465];
 	char screen4[465];
-	int input;
-	while(1){
     	int i = 0 ;
     	while(i<465){
 	    	if(i%31 == 30){
@@ -58,11 +57,6 @@ int main() {
 				d++;
 			}
 		}
-	}
-    	screen[464] = '\0';
-    	printf("%s",screen);
-		scanf("%d", &input);
-	if(input == 1){
     	int i2 = 0 ;
     	while(i2<465){
 	    	if(i2%31 == 30){
@@ -105,7 +99,7 @@ int main() {
 				screen2[g+5+31*8] = msg7[g];
 				g++;
 			}
-			char msg8[15]="Press 4 to back";
+			char msg8[15]="Press 1 to back";
 			int h = 0;
 			while(h<15)
 			{
@@ -113,11 +107,6 @@ int main() {
 				h++;
 			}
     	}
-		scanf("%d", &input);
-    	screen2[464] = '\0';
-    	printf("%s",screen2);
-	}
-		else if(input == 2){
     		int i3 = 0 ;
     		while(i3<465){
 	    		if(i3%31 == 30){
@@ -160,7 +149,7 @@ int main() {
 				screen3[l+2+31*8] = msg11[l];
 				l++;
 			}
-			char msg12[15]="Press 4 to back";
+			char msg12[15]="Press 1 to back";
 			int n = 0;
 			while(n<15)
 			{
@@ -168,11 +157,6 @@ int main() {
 				n++;
 			}
     	}
-		screen3[464] = '\0';
-    	printf("%s",screen3);
-		scanf("%d", &input);
-	}
-		else if(input == 3){
     	int i4 = 0 ;
     	while(i4<465){
 	    	if(i4%31 == 30){
@@ -201,9 +185,9 @@ int main() {
 				screen4[m+3+31*3] = msg13[m];
 				m++;
 			}
-			char msg14[20]="end the game?";
+			char msg14[13]="end the game?";
 			int o = 0;
-			while(o<20)
+			while(o<13)
 			{
 				screen4[o+3+31*4] = msg14[o];
 				o++;
@@ -223,9 +207,52 @@ int main() {
 				q++;
 			}
     	}
+		int ctl = 0;
+		while(screen){
+			printf("%s",screen);
+			printf("Press key-->");
+			scanf("%d", &ctl);
+			if(ctl == 1){
+				while(screen2){
+					ctl = 0;
+					printf("%s", screen2);
+					scanf("%d", &ctl);
+					if(ctl == 1){
+						ctl = 0;
+						break;
+					}
+				}
+			}
+			else if(ctl == 2){
+				while(ctl){
+					ctl = 0;
+					printf("%s", screen3);
+					scanf("%d", &ctl);
+					if(ctl == 1){
+						ctl = 0;
+						break;
+					}
+					else if(ctl == 2){
+						continue;
+					}
+				}
+			}
+			else if(ctl == 3){
+				ctl = 0;
+				printf("%s", screen4);
+				scanf("%d", &ctl);
+				if(ctl == 1){
+					ctl = 0;
+					break;
+				}
+				else if(ctl == 2){
+					continue;
+				}
+			}
+				}
+		screen[464] = '\0';
+		screen2[464] = '\0';
+		screen3[464] = '\0';
     	screen4[464] = '\0';
-    	printf("%s",screen4);
-		scanf("%d",&input);
-	}
     return 0;
 }
